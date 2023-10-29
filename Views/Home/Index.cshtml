@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    string CambiarBool(bool newBool)
+    {
+        if (newBool == true)
+        {
+            return "Si";
+        }
+        else
+        {
+            return "No";
+        }
+    }
+}
+<div class="text-center">
+    <h1 class="display-4">Lista Mascotas</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Tiene Pelo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mascota in ViewBag.ListaMascota)
+            {
+                <tr>
+                    <td>@mascota.PetId</td>
+                    <td>@mascota.Name</td>
+                    <td>@mascota.Type</td>
+                    <td>@mascota.Age</td>
+                    <td>@CambiarBool(@mascota.Hair)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
